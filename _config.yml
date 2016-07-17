@@ -9,7 +9,7 @@
 title: stmy notepad
 #email: your-email@domain.com
 description: > # this means to ignore newlines until "baseurl:"
-  Development notes for myself. &copy; stmy 2016-
+  Development notes for myself.
 baseurl: "" # the subpath of your site, e.g. /blog
 #url: "http://yourdomain.com" # the base hostname & protocol for your site
 twitter_username: stmy_gh
