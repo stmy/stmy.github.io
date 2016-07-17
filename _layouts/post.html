@@ -13,8 +13,10 @@ comments: true
     {{ content }}
   </div>
   
+  {% if page.comments %}
   <div class="post-disqus" itemprop="comment">
     {% include disqus.html %}
   </div>
+  {% endif %}
 
 </article>
