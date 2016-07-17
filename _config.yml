@@ -1,0 +1,21 @@
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely need to edit after that.
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'jekyll serve'. If you change this file, please restart the server process.
+
+# Site settings
+title: stmy notepad
+#email: your-email@domain.com
+description: > # this means to ignore newlines until "baseurl:"
+  Development notes for myself. &copy; stmy 2016-
+baseurl: "" # the subpath of your site, e.g. /blog
+#url: "http://yourdomain.com" # the base hostname & protocol for your site
+twitter_username: stmy_gh
+github_username:  stmy
+
+# Build settings
+markdown: kramdown
+
+exclude: ['vendor', '.git']
