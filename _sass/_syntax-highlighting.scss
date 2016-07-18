@@ -5,6 +5,10 @@
    background: #333;
 }
 
+.post-content .gist {
+    font-size: 15px;
+}
+
 .highlight,
 .post-content .gist
  {
@@ -14,6 +18,14 @@
         background: #333;
     }
 
+    .highlight {
+        font-size: inherit;
+    }
+
+    table.highlight {
+        margin: 0.3em;
+    }
+
     .gist-data {
         background: #333;
     }
@@ -21,12 +33,15 @@
     .blob-code-inner {
         background: #333;
         color: #dcdcdc;
+        font-size: inherit;
     }
 
     .blob-num {
         color: rgb(43, 145, 175);
         background: #333;
         border: none;
+        font-size: inherit;
+        padding: 0.15em 0.8em !important;
     }
 
     .blob-num:hover {
@@ -36,24 +51,25 @@
     }
 
     .c     , .pl-c       { color: #998; font-style: italic } // Comment
-    .err   , .pl-err     { color: #a61717; background-color: #e3d2d2 } // Error
+    .err   , .pl-ii      { color: #a61717; background-color: #e3d2d2 } // Error
     .k     , .pl-k       { color: rgb(86, 156, 214) } // Keyword
-    .o     , .pl-o       { } // Operator
-    .cm    , .pl-cm      { color: rgb(87, 166, 74) } // Comment.Multiline
-    .cp    , .pl-cp      { color: rgb(87, 166, 74) } // Comment.Preproc
+    .o                   { } // Operator
+    .cm                  { color: rgb(87, 166, 74) } // Comment.Multiline
+    .cp                  { color: rgb(87, 166, 74) } // Comment.Preproc
     .c1                  { color: rgb(87, 166, 74); font-style: italic } // Comment.Single
     .cs                  { color: rgb(87, 166, 74); font-style: italic } // Comment.Special
-    .gd    , .pl-gd      { color: #000; background-color: #fdd } // Generic.Deleted
-    .gd .x , .pl-gd .pl-x { color: #000; background-color: #faa } // Generic.Deleted.Specific
+    .gd    , .pl-md      { color: #000; background-color: #fdd } // Generic.Deleted
+    .gd .x               { color: #000; background-color: #faa } // Generic.Deleted.Specific
     .ge    , .pl-ge      { font-style: italic } // Generic.Emph
-    .gr    , .pl-gr      { color: #a00 } // Generic.Error
-    .gh    , .pl-gh      { color: #999 } // Generic.Heading
-    .gi    , .pl-gi      { color: #000; background-color: #dfd } // Generic.Inserted
-    .gi .x , .pl-gi .pl-x { color: #000; background-color: #afa } // Generic.Inserted.Specific
-    .go    , .pl-go      { color: #888 } // Generic.Output
-    .gp    , .pl-gp      { color: #555 } // Generic.Prompt
-    .gs    , .pl-gs      { } // Generic.Strong
-    .gu    , .pl-gu      { color: #aaa } // Generic.Subheading
+    .gr    , .pl-gr      { color: #fcc } // Generic.Error
+    .gh    , .pl-gh      { color: #bbb } // Generic.Heading
+    .gi    , .pl-mi1     { color: inherit; background-color: #575 } // Generic.Inserted
+    .gi .x               { color: inherit; background-color: #464 } // Generic.Inserted.Specific
+             .pl-mc      { color: inherit; background-color: #353 } // Generic.Changed
+    .go    , .pl-mo      { color: #bbb } // Generic.Output
+    .gp    , .pl-gp      { color: #999 } // Generic.Prompt
+    .gs    , .pl-gs      { color: inherit; } // Generic.Strong
+    .gu    , .pl-gu      { color: #999 } // Generic.Subheading
     .gt    , .pl-gt      { color: #a00 } // Generic.Traceback
     .kc    , .pl-kc      { color: rgb(86, 156, 214) } // Keyword.Constant
     .kd    , .pl-kd      { color: rgb(86, 156, 214) } // Keyword.Declaration
@@ -97,4 +113,6 @@
     .vg    , .pl-vg      { color: #008080 } // Name.Variable.Global
     .vi    , .pl-vi      { color: #008080 } // Name.Variable.Instance
     .il    , .pl-il      { color: #099 } // Literal.Number.Integer.Long
+             .pl-ba      { color: inherit; }
+             .pl-corl    { color: rgb(86, 156, 214) }
 }
