@@ -1,4 +1,13 @@
 /**
+ * Limit contents width
+ */
+.site-header > *, 
+.page-content > *, 
+.site-footer > * {
+    max-width: 80em;
+}
+
+/**
  * Site header
  */
 .site-header {
