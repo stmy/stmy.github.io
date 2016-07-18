@@ -9,6 +9,14 @@
     font-size: 15px;
 }
 
+.markdown-body {
+    background: darken($background-color, 5%);
+}
+
+.post-content .gist .markdown-body pre {
+    background: #333 !important;
+}
+
 .highlight,
 .post-content .gist
  {
