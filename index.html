@@ -19,6 +19,10 @@ layout: default
           {% if post.excerpt %}
             {{ post.excerpt }}
           {% endif %}
+          
+          {% if post.content contains site.excerpt_separator %}
+            <a href="{{ post.url | prepend: site.baseurl }}">... Read more</a>
+          {% endif %}
         </div>
       </li>
     {% endfor %}
