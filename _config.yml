@@ -19,3 +19,5 @@ github_username:  stmy
 markdown: kramdown
 
 exclude: ['vendor', '.git']
+
+excerpt_separator: <!--more-->
