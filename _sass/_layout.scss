@@ -120,6 +120,12 @@
     margin-left: 0;
 }
 
+.social-media-list > ul {
+    display: inline;
+    margin-right: 0.5em;
+    white-space: nowrap;
+}
+
 .footer-col-wrapper {
     font-size: 15px;
     color: $grey-color;
