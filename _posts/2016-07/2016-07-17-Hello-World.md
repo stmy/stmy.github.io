@@ -1,7 +1,8 @@
 ---
 layout: post
-title:  "Hello World"
+title:  Hello World
 date:   2016-07-17 15:03:17 +0900
+author: stmy
 ---
 
 ```csharp

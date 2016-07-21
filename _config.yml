@@ -21,3 +21,5 @@ markdown: kramdown
 exclude: ['vendor', '.git']
 
 excerpt_separator: <!--more-->
+
+unassigned: Unassigned

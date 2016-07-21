@@ -1,0 +1,7 @@
+<svg width="50" height="50" viewbox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
+ <g id="root" stroke-width="0">
+  <rect id="r1" height="10" width="50" />
+  <rect id="r2" height="10" width="50" y="20" />
+  <rect id="r3" height="10" width="50" y="40" />
+ </g>
+</svg>

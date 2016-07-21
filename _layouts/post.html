@@ -6,13 +6,35 @@ comments: true
 
   <header class="post-header">
     <h1 class="post-title" itemprop="name headline">{{ page.title }}</h1>
-    <p class="post-meta"><time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: "%b %-d, %Y" }}</time>{% if page.author %} • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">{{ page.author }}</span></span>{% endif %}</p>
+    <p class="post-meta">
+        <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+            {{ page.date | date: "%b %-d, %Y" }}
+        </time>
+        {% if page.author %}
+            •
+            <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+                <span itemprop="name">{{ page.author }}</span>
+            </span>
+        {% endif %}
+        {% if page.tags.size == 0 %}
+            {% assign tags = page.tags | push:site.unassigned %}
+        {% else %}
+            {% assign tags = page.tags %}
+        {% endif %}
+        {% if tags.size > 0 %}
+            • <span itemprop="keywords" itemscope itemtype="http://schema.org/LiveBlogPosting">
+            {% for tag in tags %}
+                <a class="tag" href="/archives-by-tags.html#__tag__{{ tag | slugify | uri_escape }}">{{ tag }}</a>{% if tag != page.tags.last %}<span class="tags-separator">,</span>{% endif %}
+            {% endfor %}
+            </span>
+        {% endif %}
+    </p>
   </header>
 
   <div class="post-content" itemprop="articleBody">
     {{ content }}
   </div>
-  
+
   {% if page.comments != false %}
   <div class="post-disqus" itemprop="comment">
     {% include disqus.html %}

@@ -1,8 +1,8 @@
 /**
  * Limit contents width
  */
-.site-header > *, 
-.page-content > *, 
+.site-header > *,
+.page-content > *,
 .site-footer > * {
     max-width: 80em;
 }
@@ -209,7 +209,7 @@
     > li {
         margin-bottom: $spacing-unit;
     }
-    
+
     > li:not(:last-child) {
         border-bottom: solid 1px #eee;
     }
@@ -270,4 +270,34 @@
             font-size: 18px;
         }
     }
+}
+
+
+/**
+ * Tags
+ */
+
+a.tag {
+    font-size: 80%;
+    border-radius: 0.1em;
+    background: $grey-color-light;
+    padding: 0 0.2em;
+    margin: 0 0.1em;
+}
+
+.tags-separator {
+    display: none;
+}
+
+.tag-posts {
+ display: none;
+}
+
+.tag-post-list-date {
+    font-size: 80%;
+    margin-right: 0.5em;
+}
+
+.tag-post-list:not(:target) {
+    display: none;
 }

@@ -1,0 +1,55 @@
+---
+layout: default
+---
+
+{% assign tags = "" | split:"|" %}
+{% assign tags_tmp = "" | split:"|" %}
+{% for site_tag in site.tags %}
+    {% assign tag = site_tag | join:"|" %}
+    {% assign tags_tmp = tags_tmp | push:tag %}
+{% endfor %}
+{% unless tags_tmp contains site.unassigned %}
+    {% assign tags_tmp = tags_tmp | push:site.unassigned %}
+{% endunless %}
+{% assign tags_tmp = tags_tmp | sort %}
+{% for tag_tmp in tags_tmp %}
+    {% assign tag = tag_tmp | split:"|" %}
+    {% assign tags = tags | push:tag %}
+{% endfor %}
+
+
+
+<article class="post">
+    <header class="post-header">
+        <h1 class="post-title">Archives</h1>
+    </header>
+    <div class="post-content">
+        {% for tag in tags %}
+            <div id="__tag__{{ tag[0] | slugify | uri_escape }}" class="tag-post-list">
+            	<h1>{{ tag[0] }}</h1>
+            	<ul>
+            	{% for post in site.posts %}
+                    {% assign contains_tag = false %}
+                    {% if post.tags contains tag[0] %}{% assign contains_tag = true %}{% endif %}
+                    {% if post.tags.size == 0 and tag[0] == site.unassigned %}{% assign contains_tag = true %}{% endif %}
+                    {% if post.tags.size == 0 %}
+                        {% assign page_tags = post.tags | push:site.unassigned %}
+                    {% else %}
+                        {% assign page_tags = post.tags %}
+                    {% endif %}
+            		{% if contains_tag == true %}
+                		<li>
+                            <p><a href="{{ post.url }}">{{ post.title }} -
+                    		<span class="tag-post-list-date">{{ post.date | date_to_string }}</span></a>
+                    		{% for tag in page_tags %}
+                    			<a class="tag" href="/archives-by-tags.html#__tag__{{ tag | slugify | uri_escape }}">{{ tag }}</a>
+                    		{% endfor %}
+                    		</p>
+                        </li>
+            		{% endif %}
+            	{% endfor %}
+                </ul>
+            </div>
+        {% endfor %}
+    </div>
+</article>
