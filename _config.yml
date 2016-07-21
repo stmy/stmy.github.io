@@ -22,4 +22,9 @@ exclude: ['vendor', '.git']
 
 excerpt_separator: <!--more-->
 
+# Archive
+by_tag_page: /archives-by-tags.html
+tag_id_prefix: __tag__
+by_month_page: /archives-by-date.html
+month_id_prefix: __ym__
 unassigned: Unassigned

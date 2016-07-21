@@ -1,0 +1,62 @@
+---
+layout: default
+---
+
+<!-- Enumerate post year and months -->
+{% assign yearmonths = "" | split: "|" %}
+{% for post in site.posts %}
+    {% assign ym = post.date | date: '%Y-%m' %}
+    {% unless yearmonths contains ym %}
+        {% assign yearmonths = yearmonths | push:ym %}
+    {% endunless %}
+{% endfor %}
+{% assign yearmonths = yearmonths | sort %}
+
+<article class="post">
+    <header class="post-header">
+        <h1 class="post-title">Archives</h1>
+    </header>
+    <div class="post-content">
+        {% for _ym in yearmonths %}
+            {% assign ym = _ym | split: "-" %}
+            <div id="{{site.month_id_prefix}}{{ym[0]}}_{{ym[1]}}" class="tag-post-list">
+            	<h1>
+                    {% case ym[1] %}
+                        {% when "01" %} January
+                        {% when "02" %} February
+                        {% when "03" %} March
+                        {% when "04" %} April
+                        {% when "05" %} May
+                        {% when "06" %} June
+                        {% when "07" %} July
+                        {% when "08" %} August
+                        {% when "09" %} September
+                        {% when "10" %} October
+                        {% when "11" %} November
+                        {% when "12" %} December
+                    {% endcase %}
+                    {{ym[0]}}
+                </h1>
+            	<ul>
+            	{% for post in site.posts %}
+                    {% assign pym = post.date | date: '%Y-%m' %}
+                    {% if _ym == pym %}
+                		<li>
+                            <a href="{{ post.url }}">{{ post.title }} -
+                    		<span class="tag-post-list-date">{{ post.date | date_to_string }}</span></a>
+                            {% if post.tags.size == 0 %}
+                                {% assign page_tags = post.tags | push:site.unassigned %}
+                            {% else %}
+                                {% assign page_tags = post.tags %}
+                            {% endif %}
+                    		{% for tag in page_tags %}
+                    			<a class="tag" href="{{site.by_tag_page}}#{{site.tag_id_prefix}}{{ tag | slugify | uri_escape }}">{{ tag }}</a>
+                    		{% endfor %}
+                        </li>
+            		{% endif %}
+            	{% endfor %}
+                </ul>
+            </div>
+        {% endfor %}
+    </div>
+</article>

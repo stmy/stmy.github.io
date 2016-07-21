@@ -25,26 +25,25 @@ layout: default
     </header>
     <div class="post-content">
         {% for tag in tags %}
-            <div id="__tag__{{ tag[0] | slugify | uri_escape }}" class="tag-post-list">
+            <div id="{{site.tag_id_prefix}}{{ tag[0] | slugify | uri_escape }}" class="tag-post-list">
             	<h1>{{ tag[0] }}</h1>
             	<ul>
             	{% for post in site.posts %}
                     {% assign contains_tag = false %}
                     {% if post.tags contains tag[0] %}{% assign contains_tag = true %}{% endif %}
                     {% if post.tags.size == 0 and tag[0] == site.unassigned %}{% assign contains_tag = true %}{% endif %}
-                    {% if post.tags.size == 0 %}
-                        {% assign page_tags = post.tags | push:site.unassigned %}
-                    {% else %}
-                        {% assign page_tags = post.tags %}
-                    {% endif %}
             		{% if contains_tag == true %}
                 		<li>
-                            <p><a href="{{ post.url }}">{{ post.title }} -
+                            <a href="{{ post.url }}">{{ post.title }} -
                     		<span class="tag-post-list-date">{{ post.date | date_to_string }}</span></a>
+                            {% if post.tags.size == 0 %}
+                                {% assign page_tags = post.tags | push:site.unassigned %}
+                            {% else %}
+                                {% assign page_tags = post.tags %}
+                            {% endif %}
                     		{% for tag in page_tags %}
-                    			<a class="tag" href="/archives-by-tags.html#__tag__{{ tag | slugify | uri_escape }}">{{ tag }}</a>
+                    			<a class="tag" href="{{site.by_tag_page}}#{{site.tag_id_prefix}}{{ tag | slugify | uri_escape }}">{{ tag }}</a>
                     		{% endfor %}
-                    		</p>
                         </li>
             		{% endif %}
             	{% endfor %}
