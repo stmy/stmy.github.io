@@ -17,7 +17,7 @@ comments: true
             </span>
         {% endif %}
         {% if page.tags.size == 0 %}
-            {% assign tags = page.tags | push:site.unassigned %}
+            {% assign tags = page.tags | push: site.unassigned %}
         {% else %}
             {% assign tags = page.tags %}
         {% endif %}

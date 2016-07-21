@@ -5,18 +5,18 @@ title:  "Archives"
 
 
 <!-- Enumerate tags, add "Uncategorized" tag and sort it -->
-{% assign tags = "" | split:"|" %}
-{% assign tags_tmp = "" | split:"|" %}
+{% assign tags = "" | split: "|" %}
+{% assign tags_tmp = "" | split: "|" %}
 {% for site_tag in site.tags %}
-    {% assign tag = site_tag | join:"|" %}
-    {% assign tags_tmp = tags_tmp | push:tag %}
+    {% assign tag = site_tag | join: "|" %}
+    {% assign tags_tmp = tags_tmp | push: tag %}
 {% endfor %}
 {% unless tags_tmp contains site.unassigned %}
-    {% assign tags_tmp = tags_tmp | push:site.unassigned %}
+    {% assign tags_tmp = tags_tmp | push: site.unassigned %}
 {% endunless %}
 {% assign tags_tmp = tags_tmp | sort %}
 {% for tag_tmp in tags_tmp %}
-    {% assign tag = tag_tmp | split:"|" %}
+    {% assign tag = tag_tmp | split: "|" %}
     {% assign tags = tags | push:tag %}
 {% endfor %}
 
@@ -33,20 +33,20 @@ title:  "Archives"
 
 
 <!-- Enumerate post year and months -->
-{% assign yearmonths = "" | split:"|" %}
+{% assign yearmonths = "" | split: "|" %}
 {% for post in site.posts %}
     {% assign ym = post.date | date: '%Y-%m' %}
     {% unless yearmonths contains ym %}
-        {% assign yearmonths = yearmonths | push:ym %}
+        {% assign yearmonths = yearmonths | push: ym %}
     {% endunless %}
 {% endfor %}
-{% assign yearmonths = yearmonths | sort %}
+{% assign yearmonths = yearmonths | sort | reverse %}
 
 <h2>By Date</h2>
 <ul class="archive-year-list">
-{% assign years_added = "" | split:"|" %}
+{% assign years_added = "" | split: "|" %}
 {% for _ym in yearmonths %}
-    {% assign ym = _ym | split:"-" %}
+    {% assign ym = _ym | split: "-" %}
     {% unless prev_year == ym[0] %} <!-- Start year -->
         {% if is_first == false %}</ul>{% endif %}
         <li class="archive-year-list-item">{{ym[0]}}
