@@ -25,7 +25,7 @@ layout: default
     </header>
     <div class="post-content">
         {% for tag in tags %}
-            <div id="{{site.tag_id_prefix}}{{ tag[0] | slugify | uri_escape }}" class="tag-post-list">
+            <div id="{{site.tag_id_prefix}}{{ tag[0] | downcase | uri_escape }}" class="tag-post-list">
             	<h1>{{ tag[0] }}</h1>
             	<ul>
             	{% for post in site.posts %}
@@ -42,7 +42,7 @@ layout: default
                                 {% assign page_tags = post.tags %}
                             {% endif %}
                     		{% for tag in page_tags %}
-                    			<a class="tag" href="{{site.by_tag_page}}#{{site.tag_id_prefix}}{{ tag | slugify | uri_escape }}">{{ tag }}</a>
+                    			<a class="tag" href="{{site.by_tag_page}}#{{site.tag_id_prefix}}{{ tag | downcase | uri_escape }}">{{ tag }}</a>
                     		{% endfor %}
                         </li>
             		{% endif %}

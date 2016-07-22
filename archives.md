@@ -24,7 +24,7 @@ title:  "Archives"
 <ul class="archive-tag-list">
 {% for tag in tags %}
     <li class="archive-tag-list-item">
-        <a href="{{site.by_tag_page}}#{{site.tag_id_prefix}}{{tag[0] | slugify | uri_escape}}">
+        <a href="{{site.by_tag_page}}#{{site.tag_id_prefix}}{{tag[0] | downcase | uri_escape}}">
             {{ tag[0] }}
         </a>
     </li>

@@ -24,7 +24,7 @@ comments: true
         {% if tags.size > 0 %}
             • <span itemprop="keywords" itemscope itemtype="http://schema.org/LiveBlogPosting">
             {% for tag in tags %}
-                <a class="tag" href="{{site.by_tag_page}}#{{site.tag_id_prefix}}{{ tag | slugify | uri_escape }}">{{ tag }}</a>{% if tag != page.tags.last %}<span class="tags-separator">,</span>{% endif %}
+                <a class="tag" href="{{site.by_tag_page}}#{{site.tag_id_prefix}}{{ tag | downcase | uri_escape }}">{{ tag }}</a>{% if tag != page.tags.last %}<span class="tags-separator">,</span>{% endif %}
             {% endfor %}
             </span>
         {% endif %}
