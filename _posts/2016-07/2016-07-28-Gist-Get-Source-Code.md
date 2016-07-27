@@ -12,7 +12,7 @@ Gist を張り付ける際に Gist の CSS が読み込まれてほしくない�
 
 `https://api.github.com/gists/:id` に GET を投げると gist の内容を返してくれる。
 
-<script async src="//jsfiddle.net/0ke95not/1/embed/js,html,result/"></script>
+<script async src="https://jsfiddle.net/0ke95not/1/embed/js,html,result/"></script>
 
 この方法だと、プレーンテキストでの取得になるので、コードハイライトが必要なら Highlight.js とかを使う必要がある。
 
@@ -20,7 +20,7 @@ Gist を張り付ける際に Gist の CSS が読み込まれてほしくない�
 
 `iframe` 要素の中で Gist Embed のスクリプトを実行して、生成された HTML だけを取ってくる方法。
 
-<script async src="//jsfiddle.net/v5op7ka4/embed/js,html,result/"></script>
+<script async src="https://jsfiddle.net/v5op7ka4/embed/js,html,result/"></script>
 
 あとは対応する CSS を書けばいいだけ。
 
@@ -30,6 +30,6 @@ Gist を張り付ける際に Gist の CSS が読み込まれてほしくない�
 
 優先順位を上げればいいだけなので、
 
-<script async src="//jsfiddle.net/tjnjfxy2/embed/html,css,result/"></script>
+<script async src="https://jsfiddle.net/tjnjfxy2/embed/html,css,result/"></script>
 
 こんな感じで親になる要素を先頭にくっつければいいだけ。
