@@ -116,8 +116,8 @@ blockquote {
     color: $grey-color;
     border-left: 4px solid $grey-color-light;
     padding-left: $spacing-unit / 2;
-    font-size: 18px;
-    letter-spacing: -1px;
+    font-size: 1em;
+    letter-spacing: -0.05em;
     font-style: italic;
 
     > :last-child {
@@ -134,18 +134,18 @@ blockquote {
 figure.highlight,
 pre,
 code {
-    font-size: 15px;
+    font-size: 0.95em;
     border-radius: 0.2em;
     color: #dcdcdc;
     background-color: #333;
 }
 
 code {
-    padding: 1px 5px;
+    padding: 0.1em 0.2em;
 }
 
 pre {
-    padding: 8px 12px;
+    padding: 0.2em 0.4em;
     overflow-x: auto;
 
     > code {
@@ -202,8 +202,8 @@ pre {
 
     > svg {
         display: inline-block;
-        width: 16px;
-        height: 16px;
+        width: 1em;
+        height: 1em;
         vertical-align: middle;
 
         path {

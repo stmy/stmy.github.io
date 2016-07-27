@@ -11,18 +11,18 @@
  * Site header
  */
 .site-header {
-    border-top: 5px solid $grey-color-dark;
-    border-bottom: 1px solid $grey-color-light;
-    min-height: 56px;
+    border-top: 0.2em solid $grey-color-dark;
+    border-bottom: 0.1em solid $grey-color-light;
+    min-height: 3em;
 
     // Positioning context for the mobile navigation icon
     position: relative;
 }
 
 .site-title {
-    font-size: 26px;
-    line-height: 56px;
-    letter-spacing: -1px;
+    font-size: 1.5em;
+    line-height: 2.5em;
+    letter-spacing: -0.05em;
     margin-bottom: 0;
     float: left;
 
@@ -34,7 +34,7 @@
 
 .site-nav {
     float: right;
-    line-height: 56px;
+    line-height: 3.8em;
 
     .menu-icon {
         display: none;
@@ -46,7 +46,7 @@
 
         // Gaps between nav items, but not on the last one
         &:not(:last-child) {
-            margin-right: 20px;
+            margin-right: 1.75em;
         }
     }
 
@@ -107,7 +107,7 @@
 .post-disqus {
     margin: 6em 1em 0em;
     padding: 0.2em 1em;
-    border: 1px solid #eee;
+    border: 0.1em solid #eee;
     border-radius: 0.2em;
     background-color: #f0f0f0;
 }
@@ -117,12 +117,12 @@
  * Site footer
  */
 .site-footer {
-    border-top: 1px solid $grey-color-light;
+    border-top: 0.1em solid $grey-color-light;
     padding: $spacing-unit 0;
 }
 
 .footer-heading {
-    font-size: 18px;
+    font-size: 1.2em;
     margin-bottom: $spacing-unit / 2;
 }
 
@@ -199,7 +199,7 @@
 }
 
 .page-heading {
-    font-size: 20px;
+    font-size: 1.5em;
 }
 
 .post-list {
@@ -211,7 +211,7 @@
     }
 
     > li:not(:last-child) {
-        border-bottom: solid 1px #eee;
+        border-bottom: solid 0.1em #eee;
     }
 }
 
@@ -222,7 +222,7 @@
 
 .post-link {
     display: block;
-    font-size: 24px;
+    font-size: 1.1em;
 }
 
 
@@ -247,27 +247,42 @@
 .post-content {
     margin-bottom: $spacing-unit;
 
-    h2 {
-        font-size: 32px;
+    h1:not(:first-child),
+    h2:not(:first-child),
+    h3:not(:first-child),
+    h4:not(:first-child) {
+        margin-top: 1.5em;
+    }
+
+    h1 {
+        font-size: 2em;
 
         @include media-query($on-laptop) {
-            font-size: 28px;
+            font-size: 1.75em;
+        }
+    }
+
+    h2 {
+        font-size: 1.75em;
+
+        @include media-query($on-laptop) {
+            font-size: 1.5em;
         }
     }
 
     h3 {
-        font-size: 26px;
+        font-size: 1.5em;
 
         @include media-query($on-laptop) {
-            font-size: 22px;
+            font-size: 1.3em;
         }
     }
 
     h4 {
-        font-size: 20px;
+        font-size: 1.25em;
 
         @include media-query($on-laptop) {
-            font-size: 18px;
+            font-size: 1.1em;
         }
     }
 }
@@ -278,7 +293,7 @@
  */
 
 a.tag {
-    font-size: 80%;
+    font-size: 0.95em;
     border-radius: 0.1em;
     background: $grey-color-light;
     padding: 0 0.2em;
