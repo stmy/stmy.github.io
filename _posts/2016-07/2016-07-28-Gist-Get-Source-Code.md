@@ -24,7 +24,7 @@ Gist を張り付ける際に Gist の CSS が読み込まれてほしくない�
 
 あとは対応する CSS を書けばいいだけ。
 
-クラス名は [GitHub の中の人が linguist リポジトリのコメント](https://github.com/github/linguist/issues/1822#issuecomment-66510457]) で、linguist のスコープ名との対応表を出してくれているので、それを参考にして色を付けたりすれば良さそう。
+クラス名は [GitHub の中の人が linguist リポジトリのコメントで](https://github.com/github/linguist/issues/1822#issuecomment-66510457) 、linguist のスコープ名との対応表を出してくれているので、それを参考にして色を付けたりすれば良さそう。
 
 # スタイルを上書きしたいだけなら…
 
