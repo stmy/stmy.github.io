@@ -316,3 +316,10 @@ a.tag {
 .tag-post-list:not(:target) {
     display: none;
 }
+
+/**
+  * jsfiddle
+  */
+iframe[src^="https://jsfiddle.net/"] {
+    min-height: 15em;
+}
