@@ -322,4 +322,6 @@ a.tag {
   */
 iframe[src^="https://jsfiddle.net/"] {
     min-height: 15em;
+    border-radius: 0.2em;
+    border: $grey-color-light 0.1em solid;
 }
