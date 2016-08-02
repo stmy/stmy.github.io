@@ -136,22 +136,28 @@ pre,
 code {
     font-size: 1em;
     border-radius: 0.2em;
-    color: #dcdcdc;
-    background-color: #333;
+    color: $text-color;
 }
 
 code {
     padding: 0.1em 0.2em;
+    border: 0.1em solid $grey-color-light;
+    background-color: darken($background-color, 5%);
 }
 
 pre {
     padding: 0.2em 0.4em;
     overflow-x: auto;
+    background-color: #333;
+    color: $text-color;
 
     > code {
+        color: #dcdcdc;
         border: 0;
         padding-right: 0;
         padding-left: 0;
+        border-radius: 0;
+        background-color: transparent;
     }
 }
 

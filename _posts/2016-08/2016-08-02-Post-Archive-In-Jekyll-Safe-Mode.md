@@ -82,7 +82,7 @@ Github Pages の Jekyll はセーフモードで動作しているため、カ�
 ```html
 <ul>
 {% for tag in taglist %}
-    <li><a href="archive-by-tag.html#{{ tag[0] | uri_escape }}">{{ tag[0] }} ({{ tag[1] }})</a></li>
+    <li><a href="archive-by-tag.html#__tag__{{ tag[0] | uri_escape }}">{{ tag[0] }} ({{ tag[1] }})</a></li>
 {% endfor %}
 </ul>
 ```
