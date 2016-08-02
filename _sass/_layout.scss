@@ -300,6 +300,14 @@ a.tag {
     margin: 0 0.1em;
 }
 
+a[data-post-count]:after {
+    content: " (" attr(data-post-count) ")";
+}
+
+li.tagitem {
+    display: inline;
+}
+
 .tags-separator {
     display: none;
 }

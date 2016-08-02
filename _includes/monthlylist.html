@@ -1,0 +1,75 @@
+{% comment %}
+    Create sorted year-month list of posts which has duplicate
+    Example:
+        ["2016-07", "2016-07", "2016-08", "2016-09", "2016-09"]
+{% endcomment %}
+{% assign yearmonths_dupli = "" | split: "" %}
+{% for post in site.posts %}
+    {% assign ym = post.date | date: '%Y-%m' %}
+    {% assign yearmonths_dupli = yearmonths_dupli | push: ym %}
+{% endfor %}
+{% assign yearmonths_dupli = yearmonths_dupli | sort | reverse %}
+
+{% comment %}
+    Count posts of the month and create list of post count of the year-month
+    Example:
+        [["2016-07", 2], ["2016-08", 1], ["2016-09", 2]]
+{% endcomment %}
+{% assign yearmonths = "" | split: "|" %}
+{% assign count = 0 %}
+{% assign prev = yearmonths_dupli | first %}
+{% for ym in yearmonths_dupli %}
+    {% if prev == ym %}
+        {% assign count = count | plus: 1 %}
+    {% else %}
+        {% assign item = "" | split: "" | push: prev | push: count %}
+        {% assign yearmonths = yearmonths | push: item %}
+        {% assign count = 1 %}
+    {% endif %}
+    {% assign prev = ym %}
+{% endfor %}
+{% assign item = "" | split: "" | push: ym | push: count %}
+{% assign yearmonths = yearmonths | push: item %}
+
+{% comment %}
+    Output year-month list with post count
+{% endcomment %}
+<ul class="archive-year-list">
+{% assign years_added = "" | split: "|" %}
+{% assign is_first = true %}
+{% for _ym in yearmonths %}
+    {% assign ym = _ym[0] | split: "-" %}
+    {% unless prev_year == ym[0] %}
+        {% if is_first == false %}
+            </ul>
+            </li>
+        {% endif %}
+        <li class="archive-year-list-item">{{ym[0]}}
+            <ul class="archive-month-list">
+        {% assign is_first = false %}
+    {% endunless %}
+
+    <li class="archive-month-list-item">
+        <a href="{{site.by_month_page}}#{{site.month_id_prefix}}{{ym[0]}}_{{ym[1]}}" data-post-count="{{_ym[1]}}">
+            {% case ym[1] %}
+                {% when "01" %} January
+                {% when "02" %} February
+                {% when "03" %} March
+                {% when "04" %} April
+                {% when "05" %} May
+                {% when "06" %} June
+                {% when "07" %} July
+                {% when "08" %} August
+                {% when "09" %} September
+                {% when "10" %} October
+                {% when "11" %} November
+                {% when "12" %} December
+            {% endcase %}
+        </a>
+    </li>
+
+    {% assign prev_year = ym[0] %}
+    {% if _ym == yearmonths.last %}
+        </ul>
+    {% endif %}
+{% endfor %}

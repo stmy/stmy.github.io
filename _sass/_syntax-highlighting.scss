@@ -87,17 +87,17 @@
     .m     , .pl-m       { color: rgb(181, 206, 168) } // Literal.Number
     .s     , .pl-s       { color: rgb(214, 157, 133) } // Literal.String
              .pl-pds     { color: rgb(214, 157, 133) } // Literal.String
-    .na    , .pl-na      { } // Name.Attribute
+    .na    , .pl-na      { color: rgb(146, 202, 244) } // Name.Attribute
     .nb    , .pl-nb      {  } // Name.Builtin
     .nc    , .pl-nc      { color: rgb(78, 201, 176); } // Name.Class
              .pl-smi     { color: inherit; } // Name.Entity
     .no    , .pl-no      { color: #008080 } // Name.Constant
     .ni    , .pl-en      { color: inherit; } // Name.Entity
     .ne    , .pl-ne      { } // Name.Exception
-    .nf    , .pl-nf      { } // Name.Function
+    .nf    , .pl-nf      { color: rgb(146, 202, 244) } // Name.Function
     .nn    , .pl-nn      { } // Name.Namespace
-    .nt    , .pl-nt      { color: #000080 } // Name.Tag
-    .nv    , .pl-nv      { color: #008080 } // Name.Variable
+    .nt    , .pl-nt      { color: rgb(86, 156, 214) } // Name.Tag
+    .nv    , .pl-nv      { } // Name.Variable
     .ow    , .pl-ow      { } // Operator.Word
     .w     , .pl-w       { color: #bbb } // Text.Whitespace
              .pl-c1      { color: rgb(181, 206, 168) } // Literal.Number.Float

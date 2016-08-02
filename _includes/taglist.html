@@ -1,0 +1,87 @@
+{% comment %}
+    Create alphabetically sorted tag list
+    Format:
+        TagAAAAA<separator>2
+        TagBBBBB<separator>4
+        TagCCCCC<separator>1
+{% endcomment %}
+{% assign separator = "{3aacbed8-6af0-42f4-8338-6bcfa91cd2d7}" %}
+{% assign taglist_alpha_reversed = "" | split: "" %}
+{% for t in site.tags %}
+    {% capture item %}{{t[0]}}{{separator}}{{t[1].size}}{% endcapture %}
+    {% assign taglist_alpha_reversed = taglist_alpha_reversed | push: item %}
+{% endfor %}
+{% assign taglist_alpha_reversed = taglist_alpha_reversed | sort | reverse %}
+
+{% comment %}
+    Create tag list sorted by post count.
+    Alphabetically sorted index is stored in the second column.
+    Format:
+        00004<separator>00001<separator>TagBBBBB
+        00002<separator>00000<separator>TagAAAAA
+        00001<separator>00002<separator>TagCCCCC
+{% endcomment %}
+{% assign taglist_prepend_count = "" | split: "" %}
+{% assign index = 0 %}
+{% for t in taglist_alpha_reversed %}
+    {% assign _t = t | split: separator %}
+
+    {% assign padded_count = _t[1] | prepend: "00000" | slice: -5, 5 %}
+    {% assign padded_index = index | prepend: "00000" | slice: -5, 5  %}
+
+    {% assign item = padded_count
+        | append: separator | append: padded_index
+        | append: separator | append: _t[0]
+    %}
+
+    {% assign taglist_prepend_count = taglist_prepend_count | push: item %}
+
+    {% assign index = index | plus: 1 %}
+{% endfor %}
+{% assign taglist_prepend_count = taglist_prepend_count | sort | reverse %}
+
+{% comment %}
+    Create tag list.
+    Format:
+        4<separator>TagBBBBB
+        2<separator>TagAAAAA
+        1<separator>TagCCCCC
+{% endcomment %}
+{% assign taglist = "" | split: "" %}
+{% for t in taglist_prepend_count %}
+    {% assign _t = t | split: separator %}
+    {% assign count = _t[0] | plus: 0 %}
+    {% assign item = "" | split: "" | push: _t[2] | push: count %}
+    {% assign taglist = taglist | push: item %}
+{% endfor %}
+
+{% comment %}
+    Append "Unassigned" tag
+{% endcomment %}
+{% comment %} Count posts with no tags {% endcomment %}
+{% capture unassigned_count %}{% increment j %}{% endcapture %}
+{% for post in site.posts %}
+    {% if post.tags.size == 0 %}
+        {% capture unassigned_count %}{% increment j %}{% endcapture %}
+    {% endif %}
+{% endfor %}
+{% assign unassigned_count = unassigned_count | plus: 0 %}
+{% if unassigned_count > 0 %}
+    {% assign unassigned = "" | split: "" | push: site.unassigned | push: unassigned_count %}
+    {% assign taglist = taglist | push: unassigned %}
+{% endif %}
+
+{% comment %}
+    Output HTML tag list
+    Format:
+        <ul>
+            <li data-post-count="4">TagBBBBB</li>
+            <li data-post-count="2">TagAAAAA</li>
+            <li data-post-count="1">TagCCCCC</li>
+        </ul>
+{% endcomment %}
+<ul class="taglist">
+{% for tag in taglist %}
+    <li class="tagitem" data-post-count="{{tag[1]}}"><a class="tag" href="{{site.by_tag_page}}#{{site.tag_id_prefix}}{{tag[0] | downcase | uri_escape}}" data-post-count="{{tag[1]}}">{{tag[0]}}</a></li>
+{% endfor %}
+</ul>
