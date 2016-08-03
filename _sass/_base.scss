@@ -149,11 +149,19 @@ blockquote {
  */
 
 figure.highlight,
+div.highlight,
 pre,
 code {
     font-size: 1em;
     border-radius: 0.2em;
     color: $text-color;
+    margin: 0.2em;
+    line-height: 1.75em;
+}
+
+figure.highlight,
+div.highlight {
+    margin-bottom: 15px;
 }
 
 code {
@@ -166,10 +174,9 @@ pre {
     padding: 0.2em 0.4em;
     overflow-x: auto;
     background-color: #333;
-    color: $text-color;
+    color: #dcdcdc;
 
     > code {
-        color: #dcdcdc;
         border: 0;
         padding-right: 0;
         padding-left: 0;

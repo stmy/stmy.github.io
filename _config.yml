@@ -17,6 +17,10 @@ github_username:  stmy
 
 # Build settings
 markdown: kramdown
+kramdown:
+    syntax_highlighter_opts:
+        block:
+            line_numbers: true
 
 exclude: ['vendor', '.git']
 

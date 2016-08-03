@@ -44,8 +44,13 @@
         font-size: inherit;
     }
 
-    .blob-num {
+    .blob-num,
+    .lineno {
         color: rgb(43, 145, 175);
+        border-right: 0.1em dotted #005E7C;
+    }
+
+    .blob-num {
         background: #333;
         border: none;
         font-size: inherit;
