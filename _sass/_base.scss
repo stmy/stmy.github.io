@@ -162,6 +162,31 @@ code {
 figure.highlight,
 div.highlight {
     margin-bottom: 15px;
+    overflow: auto;
+}
+
+$scrollbar-width: 0.6em;
+$thumb-width: 0.4em;
+
+div.highlight::-webkit-scrollbar {
+    width: $scrollbar-width;
+}
+div.highlight::-webkit-scrollbar:horizontal {
+    height: $scrollbar-width;
+}
+
+div.highlight::-webkit-scrollbar-thumb {
+    width: $thumb-width;
+    background: lighten(#333, 15%);
+    border-radius: $thumb-width / 2;
+}
+
+div.highlight::-webkit-scrollbar-thumb:hover {
+    background: lighten(#333, 25%);
+}
+
+div.highlight::-webkit-scrollbar-thumb:horizontal {
+    height: $thumb-width;
 }
 
 code {
