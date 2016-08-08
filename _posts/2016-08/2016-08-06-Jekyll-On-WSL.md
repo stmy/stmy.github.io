@@ -13,7 +13,7 @@ Windows Subsystem for Linux (WSL) がインストールされている状態か�
 コンソール上での日本語表示が怪しい（2016/8/6 現在）ので、最初に英語表示に戻しておく。
 
 ```
-sudo update-locale LANG="en_US.utf8" LANGUAGE="en_US"
+$ sudo update-locale LANG="en_US.utf8" LANGUAGE="en_US"
 ```
 
 シェルを再起動後、Ruby 環境をインストール。

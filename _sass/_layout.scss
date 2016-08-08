@@ -139,7 +139,7 @@
 }
 
 .footer-col-wrapper {
-    font-size: 15px;
+    font-size: 0.9em;
     color: $grey-color;
     margin-left: -$spacing-unit / 2;
     @extend %clearfix;
@@ -235,12 +235,12 @@
 }
 
 .post-title {
-    font-size: 42px;
-    letter-spacing: -1px;
-    line-height: 1;
+    font-size: 2em;
+    letter-spacing: -0.025em;
+    line-height: 1.25;
 
     @include media-query($on-laptop) {
-        font-size: 36px;
+        font-size: 1.75em;
     }
 }
 
