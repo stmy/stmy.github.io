@@ -14,4 +14,4 @@ github.dev のほうから更新してみる。
 
 できてるっぽい。すばらしい。
 
-ただ、https://github.dev/stmy/stmy.github.io を Chrome の PWA アプリ登録してデスクトップから起動してみたところ、https://github.dev/github/dev に飛んでしまって編集できませんね...。
+https://github.dev/stmy/stmy.github.io を Chrome で PWA 登録してデスクトップから起動してみたところ、https://github.dev/github/dev に飛んでしまって編集できませんね...。
