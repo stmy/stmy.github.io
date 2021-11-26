@@ -20,7 +20,7 @@ https://github.dev/stmy/stmy.github.io を PWA としてデスクトップショ
 
 なんかコードのとこが派手に壊れてますね...。
 
-```rust:main.rs
+```rs
 use std::fs::File;
 use std::io::Write;
 use std::io::Read;
@@ -56,3 +56,8 @@ fn handle_connection(mut stream: TcpStream) {
     //println!("Request: {}", String::from_utf8_lossy(&buffer));
 }
 ```
+
+【もっと追記】
+
+minify がうまく行ってないみたいなので無効化してみた。
+
